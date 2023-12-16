@@ -3,6 +3,7 @@
 **	STA	    ALPHA
 ** 	LDCH 	CHARZ
 ** 	STCH 	C1
+**      +JSUB   ALPHA
 ALPHA 	RESW 	2
 FIVE 	WORD 	5
 CHARZ 	BYTE 	C'Z'

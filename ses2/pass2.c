@@ -118,7 +118,7 @@ void pass2()
     char line[100];
     size_t len = 100 * sizeof(char);
 
-    while ((fgets(&line, &len, fp1)) != NULL)
+    while ((fgets(line, len, fp1)) != NULL)
     {
         int len = 0;
         strcpy(label, " ");
@@ -133,7 +133,12 @@ void pass2()
             array[len++] = p;
             p = strtok (NULL, delimit);
         }
-        if(len == 1)
+        if(opcode[0] == '+') {
+
+    memmove(opcode, opcode+1, strlen(opcode));
+    opcode[strlen(opcode)-1] = '\0';
+}
+        else if(len == 1)
         {
             strcpy(opcode, array[0]);
         }
@@ -287,7 +292,7 @@ void show_output()
     char line[100];
     size_t len = 100 * sizeof(char);
 
-    while ((fgets(&line, &len, fp8)) != NULL)
+    while ((fgets(line, len, fp8)) != NULL)
         printf("%s", line);
 
     fclose(fp8);
